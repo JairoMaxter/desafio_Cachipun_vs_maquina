@@ -48,5 +48,26 @@ for (let index = 0; index < numeroPartidas; index++) {
     opcionesInvalidas++}
 }
 
-document.write(`<p> Has ganado ${ganadas} veces, perdido ${perdidas} veces, empatado ${empatados} veces y has introducido ${opcionesInvalidas} numeros invalidos</p>`);
+var imagen = "hola";
+if (ganadas>perdidas){
+    var imagen = `"Assets\\img\\trofeo_ganador.jpg"`;
+    var textTitle = "Ganaste";
+} else if (ganadas<perdidas) {
+    var imagen = `"Assets\\img\\trofeo_perdedor.jpg"`;
+    var textTitle = "Perdiste";
+} else {
+    var imagen = `"Assets\\img\\empate.jpg"`;
+    var textTitle = "Empataste";
+};
+
 console.log(`Has ganado ${ganadas} veces, perdido ${perdidas} veces, empatado ${empatados} veces y has introducido ${opcionesInvalidas} numeros invalidos`);
+
+let Excuse = document.querySelector("#excuse");
+Excuse.innerHTML = `<div class="card" style="width: 18rem;">
+  <img src=${imagen} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"> ${textTitle} </h5>
+    <p class="card-text">Has ganado ${ganadas} veces, perdido ${perdidas} veces, empatado ${empatados} veces y has introducido ${opcionesInvalidas} numeros invalidos</p>
+    <a href="#" class="btn btn-primary" value="Actualizar" onclick="location.reload()">jugar de nuevo</a>
+  </div>
+</div>`;
