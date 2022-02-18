@@ -1,0 +1,54 @@
+     a            b
+
+0 (piedra) - 1 (papel)  -1 gana b
+0 (piedra) - 2 (tijera) -2 gana a
+1 (papel)  - 0 (piedra)  1 gana a
+
+1 (papel)  - 2 (tijera) -1 gana b
+2 (tijera) - 0 (piedra)  2 gana a
+2 (tijera) - 1 (papel)   1 gana b
+
+
+let contador = 0;
+let numeroPartidas = parseInt(prompt("¿Cuantas veces quieres jugar?"));
+
+for (let index = 0; index < numeroPartidas; index++) {
+    let opcionUsuario = parseInt(prompt("Empecemos entonces, recuerda lo siguiente: \n 0 es igual a piedra \n 1 es igual papel \n 2 es igual a tijera \n ¿Cual es tu eleccion?"));
+    let opcionMaquina = Math.floor(Math.random() * 3);
+    console.log(`Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario}`);
+    switch (opcionUsuario && opcionMaquina) {
+        case ((0 && 0) || (1 && 1) || (2 && 2)):
+            alert("Empatados")
+            console.log(`Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario} empatados`)
+            break;
+        case (0 && 1):
+            alert("Te gano la maquina")
+            console.log(`Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario} te gano una maquina 1`)
+            break;
+        case (0 && 2):
+            alert("Has ganado")
+            console.log(`Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario} has ganado 1`)
+            break;
+        case (1 && 0):
+            alert("Has ganado")
+            console.log(`Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario} has ganado 2`)
+            break;
+        case (1 && 2):
+            alert("Te gano la maquina")
+            console.log(`Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario} te gano una maquina 2`)
+            break;
+        case (2 && 0):
+            alert("Has ganado")
+            console.log(`Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario} has ganado 3`)
+            break;
+        case (2 && 1):
+            alert("Te gano la maquina")
+            console.log(`Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario} te gano una maquina 3`)
+            break;
+        default: alert('Por favor, selecciona 0, 1 o 2 como valor.')
+            console.log(`Por favor, selecciona 0, 1 o 2 como valor. Valor de la maquina ${opcionMaquina} valor del usuario ${opcionUsuario}`)
+            alert('Por favor, selecciona 0, 1 o 2 como valor.')
+            break;
+    }
+    contador++
+}
